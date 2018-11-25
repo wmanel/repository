@@ -56,24 +56,26 @@ Public Class Form1
 
     End Sub
 
-    'String Validation
+        'String Validation
     '1.	Length = 6
     '2.	Char1 = (A~Z), (a~z), or _ 
-    '3.	Char2 -> (a~z), (A~Z), (0~9), or _ 
+    '3.	Char2-6 (a~z), (A~Z), (0~9), or _ 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Dim inputtext As String
         Dim strs As String
         Dim insStr As String
         Dim strRes As String
         Dim index As Integer = 4
-        inputtext = TextBox4.Text
+        Dim testcheck As Boolean
 
         'Output Manipulation
         '1. All lower to upper
         '2. All 1s to 8s
         '3. Add Space between position 3-4
-        If inputtext Like "[^A~Za~z_]+[a~zA~Z0~9_]+[a~zA~Z0~9_]+[a~zA~Z0~9_]+[a~zA~Z0~9_]+[a~zA~Z0~9_]" Then
-            inputtext = inputtext.ToUpper
+        testcheck = TextBox4.Text Like "^[A-Za-z-_][A-Za-z#_]{6}$"
+
+        If True Then
+            inputtext = TextBox4.Text.ToUpper
             inputtext = inputtext.Replace("1", "8")
             strs = inputtext
             insStr = " "
